@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React, { Suspense } from 'react';
+import { isEmpty } from 'lodash';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LoggedInComponent from './components/LoggedInComponent/LoggedInComponent';
+import LoggedOutComponent from './components/LoggedIOutComponent/LoggedOutComponent';
+
+const App = () => {
+    const employeeDetails = {};
+
+    return (
+        <Router>
+            <RecoilRoot>
+                <Suspense fallback={<div>Loading...</div>}>
+                {
+                    !isEmpty(employeeDetails) ? <LoggedInComponent /> : <LoggedOutComponent />
+                }
+                {/* <Route exact path="/">
+                    <Auth/> 
+                </Route> 
+                <Route exact path="/bets">
+                    <MyBets/> 
+                </Route>
+                <Route exact path="/points-table">
+                    <PointsTable exact />
+                </Route>
+                <Route exact path="/admin">
+                    <Admin exact />
+                </Route>
+                <Route exact path="/points">
+                    <Graph exact />
+                </Route>
+                <Route exact path="/global-stats">
+                    <GlobalStats exact />
+                </Route> */}
+                </ Suspense>
+            </RecoilRoot>
+        </Router>
+    );
 }
 
 export default App;
