@@ -5,8 +5,8 @@ import { RecoilRoot } from 'recoil';
 
 import './App.css';
 
-import LoggedInComponent from './components/LoggedInComponent/LoggedInComponent';
-import LoggedOutComponent from './components/LoggedIOutComponent/LoggedOutComponent';
+import LoggedInComponents from './modules/loggedInComponents/LoggedInComponent';
+import LoggedOutComponentRoutes from './modules/loggedIOutComponents/LoggedOutComponentRoutes';
 
 const App = () => {
     const employeeDetails = {};
@@ -16,26 +16,8 @@ const App = () => {
             <RecoilRoot>
                 <Suspense fallback={<div>Loading...</div>}>
                 {
-                    !isEmpty(employeeDetails) ? <LoggedInComponent /> : <LoggedOutComponent />
+                    !isEmpty(employeeDetails) ? <LoggedInComponents /> : <LoggedOutComponentRoutes />
                 }
-                {/* <Route exact path="/">
-                    <Auth/> 
-                </Route> 
-                <Route exact path="/bets">
-                    <MyBets/> 
-                </Route>
-                <Route exact path="/points-table">
-                    <PointsTable exact />
-                </Route>
-                <Route exact path="/admin">
-                    <Admin exact />
-                </Route>
-                <Route exact path="/points">
-                    <Graph exact />
-                </Route>
-                <Route exact path="/global-stats">
-                    <GlobalStats exact />
-                </Route> */}
                 </ Suspense>
             </RecoilRoot>
         </Router>
