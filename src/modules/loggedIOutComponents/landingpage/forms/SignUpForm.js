@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Icon from 'react-fontawesome';
+import { VscChromeClose } from 'react-icons/vsc';
 import { Dialog } from '@headlessui/react';
 
 const SignupForm = (props) => {
-    const { setIsOpenLoginForm } = props;
+    const { setIsOpenLoginForm, setIsFormDialogOpen } = props;
 
     const [isOtpSent, setIsOtpSent] = useState(false);
 
@@ -14,8 +14,7 @@ const SignupForm = (props) => {
                 className="tw-border-b-2 tw-flex tw-justify-between tw-border-gray-200 tw-mb-2 tw-border-solid tw-text-lg tw-font-medium tw-leading-6 tw-text-gray-900"
             >
                 <div>Sign into our platform</div>
-                <div></div>
-                <Icon className="tw-bg-black" name="rocket" />
+                <div className="tw-cursor-pointer" onClick={() => setIsFormDialogOpen(false)}> <VscChromeClose /> </div>
             </Dialog.Title>
             
             <form className="tw-space-y-6" action="#">
@@ -25,7 +24,7 @@ const SignupForm = (props) => {
                 </div>
                 <div>
                     <label htmlFor="mobile" className="tw-block tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900">Mobile</label>
-                    <input type="password" name="mobile" id="mobile" className="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-blue-500 focus:tw-border-blue-500 tw-block tw-w-full tw-p-2.5" placeholder="82********" required />
+                    <input type="number" name="mobile" id="mobile" className="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-blue-500 focus:tw-border-blue-500 tw-block tw-w-full tw-p-2.5" placeholder="82********" required />
                 </div>
                 <button type="submit" className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Send OTP</button>
                 { isOtpSent ? <>

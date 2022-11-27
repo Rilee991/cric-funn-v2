@@ -35,7 +35,16 @@ const FormDialog = (props) => {
 							leaveTo="opacity-0 scale-95"
 							className="tw-w-full tw-flex tw-justify-center"
 						>
-                			{ isOpenLoginForm ? <SignInForm setIsOpenLoginForm={setIsOpenLoginForm} /> : <SignUpForm setIsOpenLoginForm={setIsOpenLoginForm} /> }
+                			{ isOpenLoginForm ? 
+								<SignInForm
+									setIsOpenLoginForm={setIsOpenLoginForm}
+									setIsFormDialogOpen={setIsFormDialogOpen}
+								/>
+								: <SignUpForm
+									setIsOpenLoginForm={setIsOpenLoginForm}
+									setIsFormDialogOpen={setIsFormDialogOpen}
+								/> 
+							}
               			</Transition.Child>
             		</div>
           		</div>
