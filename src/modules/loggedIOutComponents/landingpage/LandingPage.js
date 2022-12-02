@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import TopSection from './sections/TopSection';
 import FormDialog from './forms/FormDialog';
@@ -17,6 +19,7 @@ const LandingPage = () => {
             <hr />
             <br />
             <BottomSection />
+            <ToastContainer />
             { <FormDialog isFormDialogOpen={isFormDialogOpen} setIsFormDialogOpen={setIsFormDialogOpen} /> }
         </section>
     );

@@ -11,10 +11,15 @@ const BottomSection = () => {
                     <img src={cricFunnLogo} className="tw-w-[80px] tw-mr-2" />
                     Cric-Funn
                 </Link>
-                <p className="tw-my-6 tw-text-gray-300">Just a personalised fun web app, developed for people to enjoy with friends and have a good time on the platform.</p>
+                <p className="tw-my-6 tw-text-gray-300"><b>About the app:</b> Just a personalised fun web app, developed for people to enjoy with friends and have a good time on the platform.</p>
                 <ul className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-mb-6 tw-text-white">
                     <li>
-                        <a href="https://www.buymeacoffee.com/rohitkumark" className="tw-mr-4 hover:tw-underline md:tw-mr-6">Buy Me a Coffee</a>
+                        Liked the app? <a href="https://www.buymeacoffee.com/rohitkumark" className="tw-mr-4 hover:tw-underline md:tw-mr-6">Buy Me a Coffee</a>
+                    </li>
+                </ul>
+                <ul className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-mb-6 tw-text-white">
+                    <li>
+                        Wanna connect?&nbsp;
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/in/rohit-kumar-a92418141/" className="tw-mr-4 hover:tw-underline md:tw-mr-6">LinkedIn</a>

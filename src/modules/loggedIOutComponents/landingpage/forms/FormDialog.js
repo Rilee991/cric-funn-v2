@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
 
+import { getExistingUsers } from '../../../../apis/usercontroller';
+import { isEmpty } from 'lodash';
+
 const FormDialog = (props) => {
 	const { isFormDialogOpen, setIsFormDialogOpen } = props;
 
 	const [isOpenLoginForm, setIsOpenLoginForm] = useState(true);
+	const [existingUsers, setExistingUsers] = useState([]);
 
+	useEffect(() => {
+		getAllUsers();
+	},[])
+
+	const getAllUsers = async () => {
+		if(isEmpty(existingUsers)) {
+			const existingUsers = await getExistingUsers();
+			setExistingUsers(existingUsers);
+		}
+	}
 
   	return (
 		<Transition appear show={isFormDialogOpen}>
@@ -39,10 +53,12 @@ const FormDialog = (props) => {
 								<SignInForm
 									setIsOpenLoginForm={setIsOpenLoginForm}
 									setIsFormDialogOpen={setIsFormDialogOpen}
+									existingUsers={existingUsers}
 								/>
 								: <SignUpForm
 									setIsOpenLoginForm={setIsOpenLoginForm}
 									setIsFormDialogOpen={setIsFormDialogOpen}
+									existingUsers={existingUsers}
 								/> 
 							}
               			</Transition.Child>
