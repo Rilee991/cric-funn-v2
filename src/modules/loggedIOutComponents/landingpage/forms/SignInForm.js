@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
-import { FcCheckmark } from 'react-icons/fc';
 import { Dialog } from '@headlessui/react';
 import { find, get, isEmpty } from 'lodash';
 

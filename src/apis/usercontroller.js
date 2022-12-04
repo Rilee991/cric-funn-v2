@@ -13,6 +13,15 @@ const getExistingUsers = async () => {
     }
 }
 
+const createNewUserInDb = async (user) => {
+    try {
+        await usersCollectionRef.doc().set(user);
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
 module.exports = {
-    getExistingUsers
+    getExistingUsers,
+    createNewUserInDb
 };

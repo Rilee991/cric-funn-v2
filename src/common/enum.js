@@ -12,3 +12,7 @@ export const codeStatus = {
     VERIFYING_CODE_SUCCESS: "verifying_code_success",
     VERIFYING_CODE_FAILURE: "verifying_code_failure"
 };
+
+export const images = {
+    DEFAULT_PROFILE_IMAGE: "https://firebasestorage.googleapis.com/v0/b/cric-funn.appspot.com/o/defaultImages%2Fdefault.png?alt=media&token=9ccd045b-3ece-4d06-babf-04c267c38d40"
+}
