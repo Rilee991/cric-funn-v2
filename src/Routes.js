@@ -10,6 +10,7 @@ import CricFunnLogo from './resources/cricfunn.png';
 import { userAtom } from './store/userStore';
 import { auth } from './firebase/config';
 import { getUserByKey } from './apis/usercontroller';
+import { showToastMessage } from './components/Toast';
 
 const Routes = () => {
     const [user, setUser] = useRecoilState(userAtom);
@@ -30,6 +31,7 @@ const Routes = () => {
                 setUser(userDetails);
             }
         } catch (e) {
+            showToastMessage("error", `Error in loading your details: ${e.message}`);
             console.log(e.message);
         }
         
