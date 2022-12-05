@@ -132,6 +132,7 @@ const SignInForm = (props) => {
             await window.confirmationResult.confirm(formVals["code"]);
             setCodeVerificationStatus(codeStatus.VERIFYING_CODE_SUCCESS);
             setUser(userDetails);
+            showToastMessage("success", `Successfully signed in!`);
         } catch (e) {
             showToastMessage("error", `Error verifying code. ${e.message}`);
             setCodeVerificationStatus(codeStatus.VERIFYING_CODE_FAILURE);
