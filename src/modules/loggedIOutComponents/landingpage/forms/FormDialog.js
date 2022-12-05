@@ -39,7 +39,7 @@ const FormDialog = (props) => {
           		</Transition.Child>
 
 				<div className="tw-fixed tw-inset-0 tw-overflow-y-auto">
-					<div className="tw-flex tw-min-h-full tw-items-center tw-justify-center tw-p-4 tw-text-center">
+					<div className="tw-flex tw-drop-shadow-2xl tw-min-h-full tw-items-center tw-justify-center tw-p-4 tw-text-center">
 						<Transition.Child
 							enter="ease-out duration-300"
 							enterFrom="opacity-0 scale-95"
