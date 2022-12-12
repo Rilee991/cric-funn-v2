@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import NotFoundError from "../../components/NotFoundError";
-import Home from "./Home";
+import Home from "./home/Home";
 import Navbar from "./navigation/Navbar";
 
 const LoggedInComponentRoutes = () => {

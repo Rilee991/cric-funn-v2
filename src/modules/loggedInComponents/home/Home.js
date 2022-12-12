@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-import { tournamentTypes } from '../../common/enum';
+import { tournamentTypes } from '../../../common/enum';
+import ActiveTournaments from './tabs/active/ActiveTournaments';
+import SubscribedTournaments from './tabs/subcribed/SubscribedTournaments';
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState(tournamentTypes.SUBSCRIBED);
@@ -11,7 +13,7 @@ const Home = () => {
     return (
         <div className="tw-border-gray-200">
             {/* Tab Header */}
-            <ul className={`tw-flex tw-w-full tw-flex-wrap tw--mb-px tw-text-sm tw-font-medium tw-justify-evenly tw-text-center`}>
+            <ul className={`tw-flex tw-w-full tw-flex-wrap tw-mb-3 tw-text-sm tw-font-medium tw-justify-evenly tw-text-center`}>
                 <li style={{ transition: "border-bottom 0.5s ease-out"}} className={`tw-w-1/2 tw-border-b-2 tw-border-r-2 ${activeTab === tournamentTypes.SUBSCRIBED ? "tw-text-gray-900 tw-border-b-gray-900 tw-border-b-4" : "tw-text-gray-400"}`} onClick={() => setActiveTab(tournamentTypes.SUBSCRIBED)}>
                     <div href="#" className="tw-cursor-pointer tw-inline-flex tw-p-4 tw-rounded-t-lg tw-border-b-2 tw-border-transparent hover:tw-text-gray-600 tw-group">
                         <svg className="tw-w-5 tw-h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
@@ -27,7 +29,7 @@ const Home = () => {
             </ul>
 
             {/* Tab Body */}
-            {activeTab}
+            { activeTab === tournamentTypes.SUBSCRIBED ? <SubscribedTournaments /> : <ActiveTournaments /> }
         </div>
     );
 }
