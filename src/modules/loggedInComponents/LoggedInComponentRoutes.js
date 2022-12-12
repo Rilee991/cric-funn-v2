@@ -9,17 +9,19 @@ const LoggedInComponentRoutes = () => {
 	return (
 		<div>
 			<Navbar />
-			<Switch>
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route exact path="/abc">
-					<Home />
-				</Route>
-				<Route>
-					<NotFoundError />
-				</Route>
-			</Switch>
+			<div className="tw-p-2 md:tw-max-w-2xl lg:tw-max-w-4xl xl:tw-max-w-5xl tw-items-center tw-justify-between tw-mx-auto">
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+					<Route exact path="/abc">
+						<Home />
+					</Route>
+					<Route>
+						<NotFoundError />
+					</Route>
+				</Switch>
+			</div>
 		</div>
 	);
 };
