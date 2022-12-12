@@ -16,3 +16,8 @@ export const codeStatus = {
 export const images = {
     DEFAULT_PROFILE_IMAGE: "https://firebasestorage.googleapis.com/v0/b/cric-funn.appspot.com/o/defaultImages%2Fdefault.png?alt=media&token=9ccd045b-3ece-4d06-babf-04c267c38d40"
 }
+
+export const tournamentTypes = {
+    SUBSCRIBED: "subscribed",
+    ACTIVE: "active"
+}
