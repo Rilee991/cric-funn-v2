@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Drawer } from 'antd';
 import { useRecoilState } from 'recoil';
 
-import CricFunnLogo from '../../../resources/cricfunn.png';
-
 import { userAtom } from '../../../store/userStore';
 import NavLeftSide from './NavLeftSide';
 import NavRightSide from './NavRightSide';
+import { CricFunnImage } from '../../../resources/icons/Icons';
 
 const Navbar = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -23,7 +22,7 @@ const Navbar = () => {
             <Drawer
                 title={
                     <div className="tw-flex tw-items-center">
-                        <img src={CricFunnLogo} className="tw-h-10 tw-mr-3" alt="Cricfunn Logo" />
+                        <CricFunnImage className="tw-h-10 tw-mr-3" />
                         <span className="tw-self-center tw-text-white tw-text-xl tw-font-semibold tw-whitespace-nowrap">Cric-Funn</span>
                     </div>
                 }
