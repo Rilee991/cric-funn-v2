@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { LeftArrowIcon } from '../resources/icons/Icons';
+
 import Button from './Button';
 
 const NotFoundError = () => {
@@ -14,7 +16,7 @@ const NotFoundError = () => {
                     <p className="tw-px-4 tw-pb-4 tw-text-base tw-leading-none dark:tw-text-black tw-text-center tw-text-gray-600">The content you’re looking for doesn’t exist. Either it was removed, or you mistyped the link.</p>
                     <p className="tw-px-4 tw-pb-10 tw-text-base tw-leading-none dark:tw-text-black tw-text-center tw-text-gray-600">Sorry about that! Please visit our hompage to get where you need to go..</p>
                     <Link to="/">
-                        <Button buttonText="Go Back" />
+                        <Button text="Go Back" icon={<LeftArrowIcon className="tw-w-6 tw-h-6" />} />
                     </Link>
                 </div>
             </div>
