@@ -7,9 +7,11 @@ import { useRecoilState } from 'recoil';
 
 import { firebase, auth } from '../../../../firebase/config';
 import { codeStatus, images } from '../../../../common/enum';
+import Button from '../../../../components/Button';
 import { showToastMessage } from '../../../../components/Toast';
 import { createNewUserInDb } from '../../../../apis/usercontroller';
 import { userAtom } from '../../../../store/userStore';
+import { LoadingCircleIcon } from '../../../../resources/icons/Icons';
 
 const SignupForm = (props) => {
     const { setIsOpenLoginForm, setIsFormDialogOpen, existingUsers } = props;
@@ -59,6 +61,7 @@ const SignupForm = (props) => {
             if(isEmpty(formVals["username"])) {
                 showToastMessage("error", "Please enter username.");
                 setCodeSendingStatus(codeStatus.SENDING_CODE_FAILURE);
+                toggleLoaderWithText(false,"");
                 return;
             }
 
@@ -69,12 +72,14 @@ const SignupForm = (props) => {
             if(!isEmpty(mobile)) {
                 showToastMessage("error", "Username already taken. Please select a different username!");
                 setCodeSendingStatus(codeStatus.SENDING_CODE_FAILURE);
+                toggleLoaderWithText(false,"");
                 return;
             }
 
             if(isEmpty(formVals["mobile"])) {
                 showToastMessage("error", "Please enter mobile.");
                 setCodeSendingStatus(codeStatus.SENDING_CODE_FAILURE);
+                toggleLoaderWithText(false,"");
                 return;
             }
 
@@ -101,6 +106,7 @@ const SignupForm = (props) => {
             if(isEmpty(formVals["username"])) {
                 showToastMessage("error", "Please enter username.");
                 setCodeResendingStatus(codeStatus.RESENDING_CODE_FAILURE);
+                toggleLoaderWithText(false,"");
                 return;
             }
 
@@ -141,6 +147,7 @@ const SignupForm = (props) => {
             if(isEmpty(formVals["code"])) {
                 showToastMessage("error", "Please enter code.");
                 setCodeVerificationStatus(codeStatus.VERIFYING_CODE_FAILURE);
+                toggleLoaderWithText(false,"");
                 return;
             }
 
@@ -191,13 +198,49 @@ const SignupForm = (props) => {
                         <input onChange={onChangeText} type="number" name="mobile" id="mobile" className="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-blue-500 focus:tw-border-blue-500 tw-block tw-w-full tw-p-2.5" placeholder="82********" required />
                     </div>
                     <div id="recaptcha-container"  className="tw-hidden"></div>
-                    <button onClick={onClickSendCode} className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Send Code</button>
+                    <Button
+                        useIcon={false}
+                        text={codeSendingStatus === codeStatus.SENDING_CODE ? 
+                            <>
+                                <LoadingCircleIcon className="tw-inline tw-mr-3 tw-w-4 tw-h-4 tw-text-white tw-animate-spin" />
+                                Sending Code...
+                            </> : codeSendingStatus === codeStatus.SENDING_CODE_SUCCESS ? "Code Sending Done" : "Send Code" 
+                        }
+                        disabled={codeSendingStatus === codeStatus.SENDING_CODE_SUCCESS}
+                        onClickHandler={onClickSendCode}
+                        className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center"
+                    />
+                    {/* <button onClick={onClickSendCode} className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Send Code</button> */}
                     { codeSendingStatus === codeStatus.SENDING_CODE_SUCCESS ? <>
                         <div>
                             <label htmlFor="code" className="tw-block tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900">A code has been sent to your entered mobile number. Please enter below.</label>
                             <input onChange={onChangeText} type="password" name="code" id="code" className="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-blue-500 focus:tw-border-blue-500 tw-block tw-w-full tw-p-2.5" placeholder="******" required />
                         </div>
                         <div className="tw-flex tw-gap-1">
+                            <Button
+                                useIcon={false}
+                                text={codeResendingStatus === codeStatus.RESENDING_CODE ? 
+                                    <>
+                                        <LoadingCircleIcon className="tw-inline tw-mr-3 tw-w-4 tw-h-4 tw-text-white tw-animate-spin" />
+                                        Resending Code...
+                                    </> : codeResendingStatus === codeStatus.RESENDING_CODE_SUCCESS ? "Code Resending Done" : "Resend Code"
+                                }
+                                disabled={codeResendingStatus === codeStatus.RESENDING_CODE_SUCCESS || codeVerificationStatus === codeStatus.VERIFYING_CODE_SUCCESS}
+                                onClickHandler={onClickResendCode}
+                                className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center"
+                            />
+                            <Button
+                                useIcon={false}
+                                text={codeVerificationStatus === codeStatus.VERIFYING_CODE ? 
+                                    <>
+                                        <LoadingCircleIcon className="tw-inline tw-mr-3 tw-w-4 tw-h-4 tw-text-white tw-animate-spin" />
+                                        Creating Account...
+                                    </> : codeVerificationStatus === codeStatus.VERIFYING_CODE_SUCCESS ? "Account Created" : "Created Account"
+                                }
+                                disabled={codeVerificationStatus === codeStatus.VERIFYING_CODE_SUCCESS}
+                                onClickHandler={onClickCreateAccount}
+                                className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center"
+                            />
                             <button onClick={onClickResendCode} className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Resend Code</button>
                             <button onClick={onClickCreateAccount} type="submit" className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Create account</button>
                         </div>

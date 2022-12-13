@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import cricFunnLogo from '../../../../resources/cricfunn.png';
+import { FacebookIcon, LinkedInIcon, TwitterIcon } from '../../../../resources/icons/Icons';
 
 const BottomSection = () => {
     return (
@@ -21,14 +22,20 @@ const BottomSection = () => {
                     <li>
                         Wanna connect?&nbsp;
                     </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/rohit-kumar-a92418141/" className="tw-mr-4 hover:tw-underline md:tw-mr-6">LinkedIn</a>
+                    <li className="tw-block">
+                        <a href="https://www.linkedin.com/in/rohit-kumar-a92418141/">
+                            <LinkedInIcon className="tw-w-10" />
+                        </a>
                     </li>
-                    <li>
-                        <a href="https://www.facebook.com/StoneCypher33" className="tw-mr-4 hover:tw-underline md:tw-mr-6">Facebook</a>
+                    <li className="tw-block">
+                        <a href="https://www.facebook.com/StoneCypher33">
+                            <FacebookIcon className="tw-w-10" />
+                        </a>
                     </li>
-                    <li>
-                        <a href="https://twitter.com/IamRohitKumar22" className="tw-mr-4 hover:tw-underline md:tw-mr-6">Twitter</a>
+                    <li className="tw-block">
+                        <a href="https://twitter.com/IamRohitKumar22">
+                            <TwitterIcon className="tw-w-10" />
+                        </a>
                     </li>
                 </ul>
                 <span className="tw-text-sm sm:tw-text-center tw-text-gray-300">© 2021-2022 <a href="#" className="tw-hover:underline">Cric-Funn™.</a><br/> Designed and Created by Cypher33.</span>
