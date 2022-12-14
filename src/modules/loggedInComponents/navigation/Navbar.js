@@ -16,7 +16,7 @@ const Navbar = () => {
             <nav className="tw-min-w-full tw-border-gray-200 tw-bg-gray-900 tw-shadow-xl">
                 <div className="tw-p-2 md:tw-max-w-2xl lg:tw-max-w-4xl xl:tw-max-w-5xl tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto">
                     <NavLeftSide />
-                    <NavRightSide setOpenDrawer={setOpenDrawer} user={user} />
+                    <NavRightSide setOpenDrawer={setOpenDrawer} user={user} setUser={setUser}/>
                 </div>
             </nav>
             <Drawer

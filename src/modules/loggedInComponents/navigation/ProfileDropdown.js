@@ -1,11 +1,14 @@
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import { useHistory } from 'react-router';
 
 import { getProfileDateFromFirebase } from '../../../common/utils';
+import { auth } from '../../../firebase/config';
 import { EditIcon, LogoutIcon } from '../../../resources/icons/Icons';
 
 const ProfileDropdown = (props) => {
-    const { user } = props;
+    const { user, setUser } = props;
+    const history = useHistory();
 
     const onHoverClasses = "tw-bg-gray-900 tw-text-white";
     
@@ -13,6 +16,15 @@ const ProfileDropdown = (props) => {
         label: window.screen.width < 640 ? `@${user.username}` : "Profile",
         icon: <EditIcon className="tw-mr-1 tw-h-5 tw-w-5" aria-hidden="true"/>
     }];
+
+    const onClickLogout = async () => {
+        await auth.signOut();
+        setUser({});
+    }
+
+    const onClickProfile = () => {
+        history.push("/profile");
+    }
 
     return (
         <div>
@@ -40,7 +52,7 @@ const ProfileDropdown = (props) => {
                             {menuItems.map((item, idx) => (
                                 <Menu.Item key={idx}>
                                     {({ active }) => (
-                                        <button className={`${ active ? onHoverClasses : 'tw-text-gray-900'} tw-group tw-flex tw-w-full tw-items-center tw-rounded-md tw-px-2 tw-py-2 tw-text-sm`}>
+                                        <button onClick={onClickProfile} className={`${ active ? onHoverClasses : 'tw-text-gray-900'} tw-group tw-flex tw-w-full tw-items-center tw-rounded-md tw-px-2 tw-py-2 tw-text-sm`}>
                                             {item.icon}
                                             {item.label}
                                         </button>
@@ -51,7 +63,7 @@ const ProfileDropdown = (props) => {
                         <div className="tw-px-1 tw-py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button className={`${ active ? onHoverClasses : 'tw-text-gray-900'} tw-group tw-flex tw-w-full tw-items-center tw-rounded-md tw-px-2 tw-py-2 tw-text-sm`}>
+                                    <button onClick={onClickLogout} className={`${ active ? onHoverClasses : 'tw-text-gray-900'} tw-group tw-flex tw-w-full tw-items-center tw-rounded-md tw-px-2 tw-py-2 tw-text-sm`}>
                                         { <LogoutIcon className="tw-mr-1 tw-h-5 tw-w-5" /> }
                                         {"Logout"}
                                     </button>

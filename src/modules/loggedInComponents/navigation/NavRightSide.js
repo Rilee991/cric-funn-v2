@@ -3,7 +3,7 @@ import React from 'react';
 import ProfileDropdown from './ProfileDropdown';
 
 const NavRightSide = (props) => {
-    const { setOpenDrawer, user } = props;
+    const { setOpenDrawer, user, setUser } = props;
 
     return (
         <div className="tw-flex tw-items-center tw-justify-end tw-space-x-2">
@@ -15,7 +15,7 @@ const NavRightSide = (props) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
             </button>
-            <ProfileDropdown user={user}/>
+            <ProfileDropdown user={user} setUser={setUser} />
         </div>
     );
 }

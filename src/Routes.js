@@ -17,12 +17,11 @@ const Routes = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         auth.onAuthStateChanged(handleAuthStateChange);
     },[]);
 
     const handleAuthStateChange = async (user) => {
-        setIsLoading(true);
-
         try {
             if(user) {
                 const userSnapshot = await getUserByKey("username", user.displayName); 

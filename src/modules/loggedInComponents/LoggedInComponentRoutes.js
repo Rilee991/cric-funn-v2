@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import NotFoundError from "../../components/NotFoundError";
 import Home from "./home/Home";
 import Navbar from "./navigation/Navbar";
+import Profile from "./profile/Profile";
 
 const LoggedInComponentRoutes = () => {
 	return (
@@ -14,8 +15,8 @@ const LoggedInComponentRoutes = () => {
 					<Route exact path="/">
 						<Home />
 					</Route>
-					<Route exact path="/abc">
-						<Home />
+					<Route exact path="/profile">
+						<Profile />
 					</Route>
 					<Route>
 						<NotFoundError />
