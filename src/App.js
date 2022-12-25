@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import './App.css';
 

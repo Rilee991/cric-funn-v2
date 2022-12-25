@@ -43,6 +43,22 @@
   justify-content: center;
 }
 
+@keyframes logoAnim {
+  0%   {opacity: 0.1;}
+  20%  {opacity: 0.2;}
+  40%  {opacity: 0.4;}
+  60%  {opacity: 0.6;}
+  80%  {opacity: 0.8;}
+  100% {opacity: 1;}
+}
+
+.sc-bdVaJa {
+  animation-name: logoAnim;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
