@@ -52,18 +52,18 @@ export const RightArrowIcon = (props) => {
 
 export const LinkedInIcon = (props) => {
     return (
-        <img {...props} alt="Linkedin icon" srcset="https://img.icons8.com/fluency/512/linkedin-circled.png 2x" />
+        <img {...props} alt="Linkedin icon" srcSet="https://img.icons8.com/fluency/512/linkedin-circled.png 2x" />
     );
 }
 
 export const FacebookIcon = (props) => {
     return (
-        <img {...props} alt="Facebook icon" srcset="https://img.icons8.com/fluency/512/facebook-new.png 2x" />
+        <img {...props} alt="Facebook icon" srcSet="https://img.icons8.com/fluency/512/facebook-new.png 2x" />
     );
 }
 export const TwitterIcon = (props) => {
     return (
-        <img {...props} alt="Twitter icon" srcset="https://img.icons8.com/fluency/512/twitter.png 2x" />
+        <img {...props} alt="Twitter icon" srcSet="https://img.icons8.com/fluency/512/twitter.png 2x" />
     );
 }
 
