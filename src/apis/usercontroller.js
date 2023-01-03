@@ -15,7 +15,7 @@ const getExistingUsers = async () => {
 
 const createNewUserInDb = async (user) => {
     try {
-        const userResp = await usersCollectionRef.doc().set(user);
+        const userResp = await usersCollectionRef.doc(user.username).set(user);
 
         return userResp;
     } catch (e) {
@@ -29,8 +29,19 @@ const getUserByKey = async (key, value) => {
     return userSnapshot;
 }
 
+const updateUserInDb = async (username, updatedKeys) => {
+    try {
+        const userResp = await usersCollectionRef.doc(username).update({ ...updatedKeys });
+
+        return userResp;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
 module.exports = {
     getExistingUsers,
     createNewUserInDb,
-    getUserByKey
+    getUserByKey,
+    updateUserInDb
 };
