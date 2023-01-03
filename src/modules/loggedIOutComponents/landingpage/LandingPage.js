@@ -14,7 +14,7 @@ const LandingPage = () => {
         <section className="tw-bg-gray-900 tw-min-h-screen">
             <TopSection setIsFormDialogOpen={setIsFormDialogOpen} />
             <br />
-            <MiddleSection />
+            <MiddleSection setIsFormDialogOpen={setIsFormDialogOpen} />
             <br />
             <hr />
             <br />

@@ -12,6 +12,7 @@ import { showToastMessage } from '../../../../components/Toast';
 import { createNewUserInDb } from '../../../../apis/usercontroller';
 import { userAtom } from '../../../../store/userStore';
 import { LoadingCircleIcon } from '../../../../resources/icons/Icons';
+import { getFirebaseTimestamp } from '../../../../common/utils';
 
 const SignupForm = (props) => {
     const { setIsOpenLoginForm, setIsFormDialogOpen, existingUsers } = props;
@@ -161,15 +162,13 @@ const SignupForm = (props) => {
     }
 
     const createAccount = async () => {
-        const { username, mobile } = formVals;
-
         const user = {
-            username,
-            mobile,
+            ...formVals,
             tournamentsInfo: [],
             isAdmin: false,
             isTestUser: false,
-            profilePic: images.DEFAULT_PROFILE_IMAGE
+            profilePic: images.DEFAULT_PROFILE_IMAGE,
+            createdAt: getFirebaseTimestamp(new Date()),
         }
 
         const resp = await createNewUserInDb(user);
@@ -189,6 +188,10 @@ const SignupForm = (props) => {
                     <div className="tw-cursor-pointer" onClick={() => setIsFormDialogOpen(false)}> <CloseOutlined /> </div>
                 </Dialog.Title>
                 <form className="tw-space-y-6">
+                    <div>
+                        <label htmlFor="name" className="tw-block tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900">Name</label>
+                        <input onChange={onChangeText} type="name" name="name" id="name" className="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-blue-500 focus:tw-border-blue-500 tw-block tw-w-full tw-p-2.5" placeholder="Tony Stark" required />
+                    </div>
                     <div>
                         <label htmlFor="username" className="tw-block tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900">Username</label>
                         <input onChange={onChangeText} type="name" name="username" id="username" className="tw-bg-gray-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-blue-500 focus:tw-border-blue-500 tw-block tw-w-full tw-p-2.5" placeholder="i_am_ironman" required />
@@ -241,8 +244,6 @@ const SignupForm = (props) => {
                                 onClickHandler={onClickCreateAccount}
                                 className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center"
                             />
-                            <button onClick={onClickResendCode} className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Resend Code</button>
-                            <button onClick={onClickCreateAccount} type="submit" className="tw-w-full tw-text-white tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-5 tw-py-2.5 tw-text-center">Create account</button>
                         </div>
                     </> : null }
                     <div className="tw-text-sm tw-font-medium tw-text-gray-500">

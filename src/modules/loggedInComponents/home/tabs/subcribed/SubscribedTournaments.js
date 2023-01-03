@@ -66,7 +66,7 @@ const SubscribedTournaments = () => {
     return (
         <div>
             {[1,2,3,4,5].map(e => (
-                <div className="tw-mb-4 tw-w-full tw-p-4 tw-text-center tw-bg-gray-900 tw-border tw-rounded-lg tw-shadow-md sm:tw-p-8">
+                <div className="sm:hover:tw-scale-105 sm:hover:tw-duration-500 sm:tw-duration-500 tw-mb-4 tw-w-full tw-p-4 tw-text-center tw-bg-gray-900 tw-border tw-rounded-lg tw-shadow-md sm:tw-p-8">
                     <h5 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-200">Ireland tour of England ODI Series, 2023</h5>
                     <p className="tw-mb-1 tw-text-base tw-text-gray-300 sm:tw-text-lg">5 Tests, 3 ODIs, 2 T20s</p>
                     <p className="tw-mb-5 tw-text-sm tw-text-gray-400 sm:tw-text-base">Starts On 23 September, 2023</p>

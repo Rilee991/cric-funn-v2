@@ -5,7 +5,12 @@ import ChallengeFriends from '../../../../resources/challengeFriends.png';
 import RoastingFriends from '../../../../resources/roastingFriends.png';
 import MakeMemories from '../../../../resources/makeMemories.png';
 
-const MiddleSection = () => {
+import Button from '../../../../components/Button';
+import { RightArrowIcon } from '../../../../resources/icons/Icons';
+
+const MiddleSection = (props) => {
+    const { setIsFormDialogOpen } = props;
+
     return (
         <div className="tw-flex tw-flex-col tw-items-center tw-text-white">
             <div>
@@ -47,6 +52,7 @@ const MiddleSection = () => {
                     <img className="tw-w-[300px]" src={MakeMemories} alt="dashboard image" />
                 </div>
             </div>
+            <Button text="Get started" icon={<RightArrowIcon className="tw-w-6 tw-h-6" />} onClickHandler={() => setIsFormDialogOpen(true)} />
         </div>
     );
 }
