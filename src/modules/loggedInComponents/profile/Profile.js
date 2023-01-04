@@ -33,11 +33,11 @@ const Profile = () => {
                                         </div>
                                     </div>
                                 <div className="tw-w-full tw-flex tw-items-center tw-justify-end lg:tw-w-4/12 tw-px-4 lg:tw-order-3 lg:tw-text-right lg:tw-self-center">
-                                    <div className="tw-py-6 tw-px-3 tw-mt-32 sm:tw-mt-0">
+                                    {/* <div className="tw-py-6 tw-px-3 tw-mt-32 sm:tw-mt-0">
                                         <button className="tw-bg-blue-500 active:tw-bg-blue-600 tw-uppercase tw-text-white tw-font-bold hover:tw-shadow-md tw-shadow tw-text-xs tw-px-4 tw-py-2 tw-rounded tw-outline-none focus:tw-outline-none sm:tw-mr-2 tw-mb-1 tw-ease-linear tw-transition-all tw-duration-150" type="button">
                                             Follow
                                         </button>
-                                    </div>
+                                    </div> */}
                                     <div onClick={() => setOpenEditModal(true)} className="tw-cursor-pointer tw-py-6 tw-px-3 tw-mt-32 sm:tw-mt-0">
                                         <svg className="tw-w-6 tw-h-6" fill="blue" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /></svg>
                                     </div>
@@ -62,6 +62,7 @@ const Profile = () => {
                                         {user.name || `No Name`}
                                         <svg className="tw-w-8 tw-h-8" fill="blue" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                                     </span>
+                                    <div className="tw-text-2xl">@{user.username}</div>
                                 </h3>
                                 <div className="tw-mb-2 text-blueGray-600 tw-mt-10 tw-flex tw-items-center tw-justify-center">
                                     <svg className="tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>

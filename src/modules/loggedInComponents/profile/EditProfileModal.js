@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Spin } from 'antd';
+import moment from 'moment';
 
 import { updateUserInDb } from '../../../apis/usercontroller';
 
 import Button from '../../../components/Button';
 import Modal from '../../../components/modal/Modal';
-import { showToastMessage } from '../../../components/Toast';
+import { getStorageFileLink } from '../../../apis/uploadFileController';
 
 const EditProfileModal = (props) => {
     const { openEditModal, setOpenEditModal, user, setUser } = props;
@@ -16,6 +17,7 @@ const EditProfileModal = (props) => {
         bio: user.bio || "",
         profilePic: user.profilePic
     });
+    const [file, setFile] = useState();
 
     const onChangeHandler = (event) => {
         let { name, value } = event.target;
@@ -25,6 +27,7 @@ const EditProfileModal = (props) => {
                 value = user.profilePic;
             } else {
                 value = URL.createObjectURL(event.target.files[0]);
+                setFile(event.target.files[0]);
             }
         }
 
@@ -37,9 +40,11 @@ const EditProfileModal = (props) => {
     const onClickSaveProfile = async () => {
         setIsLoading(true);
         try {
-            await updateUserInDb(user.username, formVals);
-            setUser({ ...user, ...formVals });
-            showToastMessage("success","Profile updated successfully!");
+            const filePath = `profilePic/${user.username}/${moment().valueOf()}`;
+            const profilePic = await getStorageFileLink(file, filePath);
+
+            await updateUserInDb(user.username, { ...formVals, profilePic });
+            setUser({ ...user, ...formVals, profilePic });
         } catch (e) {
             console.log(e.message);
         }
