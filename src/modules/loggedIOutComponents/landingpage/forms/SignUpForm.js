@@ -164,7 +164,7 @@ const SignupForm = (props) => {
     const createAccount = async () => {
         const user = {
             ...formVals,
-            tournamentsInfo: [],
+            subscribedSeries: [],
             isAdmin: false,
             isTestUser: false,
             profilePic: images.DEFAULT_PROFILE_IMAGE,

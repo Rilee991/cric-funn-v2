@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const SubscribedTournaments = () => {
+import { formatCountriesData, getCountriesWithFlag } from '../../../../../apis/cricdataController';
+
+const SubscribedSeries = () => {
     const series = [{
         "id": "53d2aa5c-8ece-43a5-a779-e571a26c55c4",
         "name": "Ireland tour of England ODI Series, 2023",
@@ -62,6 +64,10 @@ const SubscribedTournaments = () => {
         "from": "tw-from-violet-500",
         "to": "tw-to-violet-700"
     }];
+
+    useEffect(() => {
+        // formatCountriesData();
+    }, [])
 
     return (
         <div>
@@ -134,4 +140,4 @@ const SubscribedTournaments = () => {
     );
 }
 
-export default SubscribedTournaments;
+export default SubscribedSeries;

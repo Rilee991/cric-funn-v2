@@ -1,17 +1,6 @@
 import React from 'react';
 
-const ActiveTournaments = () => {
-    // {
-    //     "id": "53d2aa5c-8ece-43a5-a779-e571a26c55c4",
-    //     "name": "Ireland tour of England ODI Series, 2023",
-    //     "startDate": "2023-09-20",
-    //     "endDate": "Sep 26",
-    //     "odi": 3,
-    //     "t20": 0,
-    //     "test": 0,
-    //     "squads": 0,
-    //     "matches": 3
-    //   }
+const ActiveSeries = () => {
     const series = [{
         "id": "53d2aa5c-8ece-43a5-a779-e571a26c55c4",
         "name": "Ireland tour of England ODI Series, 2023",
@@ -145,4 +134,4 @@ const ActiveTournaments = () => {
     );
 }
 
-export default ActiveTournaments;
+export default ActiveSeries;

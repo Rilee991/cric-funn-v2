@@ -17,7 +17,11 @@ export const images = {
     DEFAULT_PROFILE_IMAGE: "https://firebasestorage.googleapis.com/v0/b/cric-funn.appspot.com/o/defaultImages%2Fdefault.png?alt=media&token=9ccd045b-3ece-4d06-babf-04c267c38d40"
 }
 
-export const tournamentTypes = {
+export const seriesTypes = {
     SUBSCRIBED: "subscribed",
     ACTIVE: "active"
+}
+
+export const apisUrl = {
+    COUNTRIES_WITH_FLAG_API: `https://api.cricapi.com/v1/countries?apikey=e5dc35f0-1ff0-422f-b494-9999047708de&offset=0`
 }
