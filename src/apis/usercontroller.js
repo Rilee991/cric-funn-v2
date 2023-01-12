@@ -14,9 +14,10 @@ const getExistingUsers = async () => {
     }
 }
 
-const createNewUserInDb = async (user) => {
+const createNewUserInDb = async (user, setUser) => {
     try {
         const userResp = await usersCollectionRef.doc(user.username).set(user);
+        setUser(user);
 
         return userResp;
     } catch (e) {
@@ -30,9 +31,10 @@ const getUserByKey = async (key, value) => {
     return userSnapshot;
 }
 
-const updateUserInDb = async (username, updatedKeys) => {
+const updateUserInDb = async (user, setUser, updatedKeys) => {
     try {
-        const userResp = await usersCollectionRef.doc(username).update({ ...updatedKeys });
+        const userResp = await usersCollectionRef.doc(user.username).update({ ...updatedKeys });
+        setUser({ ...user, ...updatedKeys });
 
         return userResp;
     } catch (e) {
@@ -52,8 +54,8 @@ const createSeriesInDb = async (seriesId) => {
 
 const subscribeSeries = async (selectedSeries) => {
     try {
-        await updateUserInDb(username, { subscribedSeries: selectedSeries });
-        await createSeriesInDb(seriesId); 
+        // await updateUserInDb(username, { subscribedSeries: selectedSeries });
+        // await createSeriesInDb(seriesId); 
     } catch (e) {
         console.log(e.message);
     }

@@ -43,7 +43,7 @@ const EditProfileModal = (props) => {
             const filePath = `profilePic/${user.username}/${moment().valueOf()}`;
             const profilePic = await getStorageFileLink(file, filePath);
 
-            await updateUserInDb(user.username, { ...formVals, profilePic });
+            await updateUserInDb(user, setUser, { ...formVals, profilePic });
             setUser({ ...user, ...formVals, profilePic });
         } catch (e) {
             console.log(e.message);

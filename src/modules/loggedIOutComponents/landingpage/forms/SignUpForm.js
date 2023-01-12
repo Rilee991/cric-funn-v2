@@ -171,9 +171,8 @@ const SignupForm = (props) => {
             createdAt: getFirebaseTimestamp(new Date()),
         }
 
-        const resp = await createNewUserInDb(user);
+        await createNewUserInDb(user, setUser);
 
-        setUser(user);
         auth.currentUser.updateProfile({ displayName: user.username });
     }
 
