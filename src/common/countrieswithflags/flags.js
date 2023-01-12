@@ -1,9 +1,9 @@
-const countries = [{
-    "id":"zw","name":"Zimbabwe","genericFlag":"https://cdorg.b-cdn.net/flags/generic/ZW.svg","shortName":"zim"
+export const countries = [{
+    "id":"zw","name":"Zimbabwe","genericFlag":"https://cdorg.b-cdn.net/flags/generic/ZW.svg","shortName":"zim", "from": "tw-from-red-700", "to": "tw-to-red-700"
 }, {
     "id":"zm","name":"Zambia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/ZM.svg","shortName":"zam"
 }, {
-    "id":"za","name":"South Africa","genericFlag":"https://cdorg.b-cdn.net/flags/generic/ZA.svg","shortName":"rsa"
+    "id":"za","name":"South Africa","genericFlag":"https://cdorg.b-cdn.net/flags/generic/ZA.svg","shortName":"rsa", "from": "tw-from-emerald-800", "to": "tw-to-emerald-800"
 }, {
     "id":"yt","name":"Mayotte","genericFlag":"https://cdorg.b-cdn.net/flags/generic/YT.svg","shortName":"may"
 }, {
@@ -141,7 +141,7 @@ const countries = [{
 }, {
     "id":"pl","name":"Poland","genericFlag":"https://cdorg.b-cdn.net/flags/generic/PL.svg","shortName":"pol"
 }, {
-    "id":"pk","name":"Pakistan","genericFlag":"https://cdorg.b-cdn.net/flags/generic/PK.svg","shortName":"pak"
+    "id":"pk","name":"Pakistan","genericFlag":"https://cdorg.b-cdn.net/flags/generic/PK.svg","shortName":"pak", "from": "tw-from-lime-800", "to": "tw-to-lime-800"
 }, {
     "id":"ph","name":"Philippines","genericFlag":"https://cdorg.b-cdn.net/flags/generic/PH.svg","shortName":"phi"
 }, {
@@ -155,17 +155,17 @@ const countries = [{
 }, {
     "id":"om","name":"Oman","genericFlag":"https://cdorg.b-cdn.net/flags/generic/OM.svg","shortName":"oma"
 }, {
-    "id":"nz","name":"New Zealand","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NZ.svg","shortName":"nz"
+    "id":"nz","name":"New Zealand","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NZ.svg","shortName":"nz", "from": "tw-from-gray-900", "to": "tw-to-gray-900"
 }, {
     "id":"nu","name":"Niue","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NU.svg","shortName":"niu"
 }, {
     "id":"nr","name":"Nauru","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NR.svg","shortName":"nau"
 }, {
-    "id":"np","name":"Nepal","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NP.svg","shortName":"nep"
+    "id":"np","name":"Nepal","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NP.svg","shortName":"nep", "from": "tw-from-amber-500", "to": "tw-to-amber-500"
 }, {
     "id":"no","name":"Norway","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NO.svg","shortName":"nor"
 }, {
-    "id":"nl","name":"Netherlands","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NL.svg","shortName":"ned"
+    "id":"nl","name":"Netherlands","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NL.svg","shortName":"ned", "from": "tw-from-orange-700", "to": "tw-to-orange-700"
 }, {
     "id":"ni","name":"Nicaragua","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NI.svg","shortName":"nic"
 }, {
@@ -177,7 +177,7 @@ const countries = [{
 }, {
     "id":"nc","name":"New Caledonia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NC.svg","shortName":"new"
 }, {
-    "id":"na","name":"Namibia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NA.svg","shortName":"nam"
+    "id":"na","name":"Namibia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/NA.svg","shortName":"nam", "from": "tw-from-violet-600", "to": "tw-to-violet-600"
 }, {
     "id":"mz","name":"Mozambique","genericFlag":"https://cdorg.b-cdn.net/flags/generic/MZ.svg","shortName":"moz"
 }, {
@@ -237,7 +237,7 @@ const countries = [{
 }, {
     "id":"lr","name":"Liberia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/LR.svg","shortName":"lib"
 }, {
-    "id":"lk","name":"Sri Lanka","genericFlag":"https://cdorg.b-cdn.net/flags/generic/LK.svg","shortName":"sl"
+    "id":"lk","name":"Sri Lanka","genericFlag":"https://cdorg.b-cdn.net/flags/generic/LK.svg","shortName":"sl", "from": "tw-from-indigo-900", "to": "tw-to-indigo-900"
 }, {
     "id":"li","name":"Liechtenstein","genericFlag":"https://cdorg.b-cdn.net/flags/generic/LI.svg","shortName":"lie"
 }, {
@@ -287,13 +287,13 @@ const countries = [{
 }, {
     "id":"io","name":"British Indian Ocean Territory","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IO.svg","shortName":"bri"
 }, {
-    "id":"in","name":"India","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IN.svg","shortName":"ind"
+    "id":"in","name":"India","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IN.svg","shortName":"ind", "from": "tw-from-blue-800", "to": "tw-to-blue-800"
 }, {
     "id":"im","name":"Isle of Man","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IM.svg","shortName":"isl"
 }, {
     "id":"il","name":"Israel","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IL.svg","shortName":"isr"
 }, {
-    "id":"ie","name":"Ireland","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IE.svg","shortName":"ire"
+    "id":"ie","name":"Ireland","genericFlag":"https://cdorg.b-cdn.net/flags/generic/IE.svg","shortName":"ire", "from": "tw-from-green-700", "to": "tw-to-green-700"
 }, {
     "id":"id","name":"Indonesia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/ID.svg","shortName":"ind"
 }, {
@@ -459,7 +459,7 @@ const countries = [{
 }, {
     "id":"be","name":"Belgium","genericFlag":"https://cdorg.b-cdn.net/flags/generic/BE.svg","shortName":"bel"
 }, {
-    "id":"bd","name":"Bangladesh","genericFlag":"https://cdorg.b-cdn.net/flags/generic/BD.svg","shortName":"ban"
+    "id":"bd","name":"Bangladesh","genericFlag":"https://cdorg.b-cdn.net/flags/generic/BD.svg","shortName":"ban", "from": "tw-from-emerald-800", "to": "tw-to-emerald-800"
 }, {
     "id":"bb","name":"Barbados","genericFlag":"https://cdorg.b-cdn.net/flags/generic/BB.svg","shortName":"bar"
 }, {
@@ -471,7 +471,7 @@ const countries = [{
 }, {
     "id":"aw","name":"Aruba","genericFlag":"https://cdorg.b-cdn.net/flags/generic/AW.svg","shortName":"aru"
 }, {
-    "id":"au","name":"Australia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/AU.svg","shortName":"aus"
+    "id":"au","name":"Australia","genericFlag":"https://cdorg.b-cdn.net/flags/generic/AU.svg","shortName":"aus", "from": "tw-from-yellow-400", "to": "tw-to-yellow-400"
 }, {
     "id":"at","name":"Austria","genericFlag":"https://cdorg.b-cdn.net/flags/generic/AT.svg","shortName":"aus"
 }, {
@@ -496,4 +496,8 @@ const countries = [{
     "id":"ae","name":"United Arab Emirates","genericFlag":"https://cdorg.b-cdn.net/flags/generic/AE.svg","shortName":"uae"
 }, {
     "id":"ad","name":"Andorra","genericFlag":"https://cdorg.b-cdn.net/flags/generic/AD.svg","shortName":"and"
+}, {
+    "id": "eng","name": "England","genericFlag": "https://g.cricapi.com/img/teams/23-637877072894080569.webp","shortName": "eng", "from": "tw-from-indigo-900", "to": "tw-to-indigo-900",            
+}, {
+    "id": "wi","name": "West Indies","genericFlag": "https://g.cricapi.com/img/teams/100-637877077978319234.webp","shortName": "wi", "from": "tw-from-pink-900", "to": "tw-to-pink-900"
 }];

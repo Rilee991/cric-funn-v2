@@ -1,6 +1,7 @@
 const { db } = require("../firebase/config");
 
 const usersCollectionRef = db.collection("users");
+const seriesCollectionRef = db.collection("series");
 
 const getExistingUsers = async () => {
     try {
@@ -39,9 +40,29 @@ const updateUserInDb = async (username, updatedKeys) => {
     }
 }
 
+const createSeriesInDb = async (seriesId) => {
+    try {
+        const userResp = await seriesCollectionRef.doc(seriesId).set({ seriesId,  });
+
+        return userResp;
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
+const subscribeSeries = async (selectedSeries) => {
+    try {
+        await updateUserInDb(username, { subscribedSeries: selectedSeries });
+        await createSeriesInDb(seriesId); 
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
 module.exports = {
     getExistingUsers,
     createNewUserInDb,
     getUserByKey,
-    updateUserInDb
+    updateUserInDb,
+    subscribeSeries
 };

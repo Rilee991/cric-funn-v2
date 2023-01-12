@@ -26,7 +26,7 @@ const Home = () => {
             </ul>
 
             {/* Tab Body */}
-            { activeTab === seriesTypes.SUBSCRIBED ? <SubscribedSeries /> : <ActiveSeries /> }
+            { activeTab === seriesTypes.SUBSCRIBED ? <SubscribedSeries setActiveTab={setActiveTab} /> : <ActiveSeries /> }
         </div>
     );
 }
