@@ -318,15 +318,15 @@ const ActiveSeries = () => {
                         <h5 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-200">{e.name}</h5>
                         <p className="tw-mb-1 tw-text-base tw-text-gray-200 sm:tw-text-lg">{`${e.test ? e.test + " Tests." : ""}`} {`${e.odi ? e.odi + " ODIs." : ""}`} {`${e.t20 ? e.t20 + " T20s." : ""}`}</p>
                         <p className="tw-mb-5 tw-text-sm tw-text-gray-200 sm:tw-text-base">Starts On {moment(e.startDate).format("dddd DD MMMM, YYYY")}</p>
-                        { canSubscribe || canWithdraw ?
-                                <div className="tw-cursor-pointer tw-items-center tw-justify-center tw-space-y-4 sm:tw-flex sm:tw-space-y-0 sm:tw-space-x-4">
-                                    <button onClick={() => onClickSubscribe(e)} disabled={!canSubscribe} className="disabled:tw-bg-slate-600 tw-cursor-pointer tw-border-white tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-blue-800 hover:tw-bg-blue-700 focus:tw-ring-1 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
-                                        <svg className="tw-mr-2 tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" /></svg>
-                                        <div className="tw-text-left">
-                                            <div className="tw--mt-1 tw-font-sans tw-text-sm tw-font-semibold">Subscribe</div>
-                                        </div>
-                                    </button>
-                                    <button disabled={!canWithdraw} onClick={() => console.log("click")} className="disabled:tw-bg-slate-600 tw-cursor-pointer tw-border-whte tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-red-800 hover:tw-bg-red-700 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
+                        <div className="tw-cursor-pointer tw-items-center tw-justify-center tw-space-y-4 sm:tw-flex sm:tw-space-y-0 sm:tw-space-x-4">
+                            { canSubscribe ? (
+                                <button onClick={() => onClickSubscribe(e)} className="tw-cursor-pointer tw-border-white tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-blue-800 hover:tw-bg-blue-700 focus:tw-ring-1 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
+                                    <svg className="tw-mr-2 tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" /></svg>
+                                    <div className="tw-text-left">
+                                        <div className="tw--mt-1 tw-font-sans tw-text-sm tw-font-semibold">Subscribe</div>
+                                    </div>
+                                </button> ) : ( canWithdraw ? (
+                                    <button onClick={() => console.log("click")} className="tw-cursor-pointer tw-border-whte tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-red-800 hover:tw-bg-red-700 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
                                         <svg className="tw-mr-2 tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                             <path d="M2 3a1 1 0 00-1 1v1a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2z"></path>
                                             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 7.5h16l-.811 7.71a2 2 0 01-1.99 1.79H4.802a2 2 0 01-1.99-1.79L2 7.5zm5.22 1.72a.75.75 0 011.06 0L10 10.94l1.72-1.72a.75.75 0 111.06 1.06L11.06 12l1.72 1.72a.75.75 0 11-1.06 1.06L10 13.06l-1.72 1.72a.75.75 0 01-1.06-1.06L8.94 12l-1.72-1.72a.75.75 0 010-1.06z"></path>
@@ -334,17 +334,19 @@ const ActiveSeries = () => {
                                         <div className="tw-text-left">
                                             <div className="tw--mt-1 tw-font-sans tw-text-sm tw-font-semibold">Withdraw</div>
                                         </div>
-                                    </button>
-                                </div>
-                            :   <div className="tw-cursor-pointer tw-items-center tw-justify-center tw-space-y-4 sm:tw-flex sm:tw-space-y-0 sm:tw-space-x-4">
-                                    <button disabled={true} className="disabled:tw-bg-slate-600 tw-cursor-pointer tw-border-whte tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-gray-800 hover:tw-bg-gray-700 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
-                                        <svg className="tw-mr-2 tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clipRule="evenodd" /></svg>
-                                        <div className="tw-text-left">
-                                            <div className="tw--mt-1 tw-font-sans tw-text-sm tw-font-semibold">{isSubscribedSeries ? "Subscribed!" : "Expired!" }</div>
-                                        </div>
-                                    </button>
-                                </div>
-                        }
+                                    </button> ) : (
+                                        <button disabled={true} className="disabled:tw-bg-zinc-600 tw-cursor-pointer tw-border-whte tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-gray-800 hover:tw-bg-gray-700 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
+                                            <svg className="tw-mr-2 tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                <path clip-rule="evenodd" fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"></path>
+                                            </svg>
+                                            <div className="tw-text-left">
+                                                <div className="tw--mt-1 tw-font-sans tw-text-sm tw-font-semibold">{isSubscribedSeries ? "Subscribed!" : "Expired!" }</div>
+                                            </div>
+                                        </button>
+                                    )
+                                )
+                            }
+                        </div>
                     </div>
                 );
             }) : 
