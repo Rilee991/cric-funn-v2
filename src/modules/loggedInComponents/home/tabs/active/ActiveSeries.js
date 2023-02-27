@@ -298,8 +298,7 @@ const ActiveSeries = () => {
     }
 
     const onClickSubscribe = async (series) => {
-        // await updateUserInDb(user.username, { subscribedSeries: [ ...user.subscribedSeries, series ] });
-        await subscribeSeries(user, series);
+        await subscribeSeries(user, setUser, series);
         // Create series in db
         // Update in user obj
     }

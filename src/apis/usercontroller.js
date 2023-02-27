@@ -1,4 +1,6 @@
-const { db } = require("../firebase/config");
+import axios from "axios";
+import { get } from "lodash";
+import { db } from "../firebase/config";
 
 const usersCollectionRef = db.collection("users");
 const seriesCollectionRef = db.collection("series");
@@ -42,26 +44,29 @@ const updateUserInDb = async (user, setUser, updatedKeys) => {
     }
 }
 
-const createSeriesInDb = async (seriesId) => {
+const createSeriesInDb = async (selectedSeries) => {
     try {
-        const userResp = await seriesCollectionRef.doc(seriesId).set({ seriesId,  });
+        const resp = await axios(`https://api.cricapi.com/v1/series_info?apikey=e5dc35f0-1ff0-422f-b494-9999047708de&id=${selectedSeries.id}`);
+        const seriesDetails = get(resp, "data.data", {});
+        console.log(seriesDetails);
+        // const userResp = await seriesCollectionRef.doc(selectedSeries.id).set({ ...seriesDetails });
 
-        return userResp;
+        // return userResp;
     } catch (e) {
         console.log(e.message);
     }
 }
 
-const subscribeSeries = async (selectedSeries) => {
+const subscribeSeries = async (user, setUser, selectedSeries) => {
     try {
-        // await updateUserInDb(username, { subscribedSeries: selectedSeries });
-        // await createSeriesInDb(seriesId); 
+        // await updateUserInDb(user, setUser, { subscribedSeries: [ ...user.subscribeSeries, selectedSeries ] });
+        await createSeriesInDb(selectedSeries);
     } catch (e) {
         console.log(e.message);
     }
 }
 
-module.exports = {
+export {
     getExistingUsers,
     createNewUserInDb,
     getUserByKey,

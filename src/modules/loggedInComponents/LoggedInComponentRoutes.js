@@ -5,6 +5,7 @@ import NotFoundError from "../../components/NotFoundError";
 import Home from "./home/Home";
 import Navbar from "./navigation/Navbar";
 import Profile from "./profile/Profile";
+import Legends from "./legends/Legends";
 import Drawer from './Drawer';
 
 const LoggedInComponentRoutes = () => {
@@ -21,6 +22,9 @@ const LoggedInComponentRoutes = () => {
 					</Route>
 					<Route exact path="/profile">
 						<Profile />
+					</Route>
+					<Route exact path="/legends">
+						<Legends />
 					</Route>
 					<Route>
 						<NotFoundError />
