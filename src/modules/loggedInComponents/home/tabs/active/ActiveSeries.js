@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { getFormattedSeries, getSeriesList } from '../../../../../apis/cricdataController';
-import { subscribeSeries, updateUserInDb } from '../../../../../apis/usercontroller';
+import { subscribeSeries, withdrawSeries } from '../../../../../apis/usercontroller';
 import { userAtom } from '../../../../../store/userStore';
 
 const ActiveSeries = () => {
@@ -299,8 +299,10 @@ const ActiveSeries = () => {
 
     const onClickSubscribe = async (series) => {
         await subscribeSeries(user, setUser, series);
-        // Create series in db
-        // Update in user obj
+    }
+
+    const onClickWithdraw = async (series) => {
+        await withdrawSeries(user, setUser, series);
     }
 
     return (
@@ -325,7 +327,7 @@ const ActiveSeries = () => {
                                         <div className="tw--mt-1 tw-font-sans tw-text-sm tw-font-semibold">Subscribe</div>
                                     </div>
                                 </button> ) : ( canWithdraw ? (
-                                    <button onClick={() => console.log("click")} className="tw-cursor-pointer tw-border-whte tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-red-800 hover:tw-bg-red-700 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
+                                    <button onClick={() => onClickWithdraw(e)} className="tw-cursor-pointer tw-border-whte tw-border-[1.2px] tw-w-full sm:tw-w-auto tw-bg-red-800 hover:tw-bg-red-700 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-gray-300 tw-text-white tw-rounded-lg tw-inline-flex tw-items-center tw-justify-center tw-px-4 tw-py-2.5">
                                         <svg className="tw-mr-2 tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                             <path d="M2 3a1 1 0 00-1 1v1a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2z"></path>
                                             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 7.5h16l-.811 7.71a2 2 0 01-1.99 1.79H4.802a2 2 0 01-1.99-1.79L2 7.5zm5.22 1.72a.75.75 0 011.06 0L10 10.94l1.72-1.72a.75.75 0 111.06 1.06L11.06 12l1.72 1.72a.75.75 0 11-1.06 1.06L10 13.06l-1.72 1.72a.75.75 0 01-1.06-1.06L8.94 12l-1.72-1.72a.75.75 0 010-1.06z"></path>
